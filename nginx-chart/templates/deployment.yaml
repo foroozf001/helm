@@ -3,16 +3,16 @@ kind: Deployment
 metadata:
   name: "{{ .Release.Name }}-deployment"
   labels:
-    app: nginx
+    {{- include "nginx-chart.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: nginx
+      {{- include "nginx-chart.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        app: nginx
+        {{- include "nginx-chart.selectorLabels" . | nindent 8 }}
     spec:
       containers:
         - name: {{ .Chart.Name }}
