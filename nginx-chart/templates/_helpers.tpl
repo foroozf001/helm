@@ -40,7 +40,6 @@ helm.sh/chart: {{ include "nginx-chart.chart" . }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
-date: {{ now | date "20060102150405" }}
 {{- end }}
 
 {{/*

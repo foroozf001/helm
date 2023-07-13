@@ -4,6 +4,7 @@ metadata:
   name: "{{ .Release.Name }}-deployment"
   labels:
     {{- include "nginx-chart.labels" . | nindent 4 }}
+    {{ .Values.annotations | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:

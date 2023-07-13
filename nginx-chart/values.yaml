@@ -85,3 +85,9 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+annotations:
+  organization: github
+  business_unit: "IT"
+  team: SysEng
+  owner: farazforoozan@gmail.com
