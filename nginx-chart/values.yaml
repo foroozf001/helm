@@ -86,8 +86,10 @@ tolerations: []
 
 affinity: {}
 
-annotations:
+annotations: {}
+
+labels:
   organization: github
   business_unit: "IT"
   team: SysEng
-  owner: farazforoozan@gmail.com
+  owner: farazforoozan

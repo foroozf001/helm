@@ -1,10 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  annotations:
+  {{- range $key, $value := .Values.annotations }}
+    {{ $key }}: {{ $value | quote }}
+  {{- end }}
   name: "{{ .Release.Name }}-deployment"
   labels:
     {{- include "nginx-chart.labels" . | nindent 4 }}
-    {{ .Values.annotations | nindent 4 }}
+  {{- if .Values.labels }}
+    {{- toYaml .Values.labels | nindent 4 }}
+  {{- end }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
