@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   {{- with .Values.annotations }}
   annotations:
-    {{- toYaml . | nindent 0 }}
+    {{- toYaml . | nindent 4 }}
   {{- end }}
   name: "{{ .Release.Name }}-deployment"
   namespace: {{ .Release.Namespace }}

@@ -86,7 +86,8 @@ tolerations: []
 
 affinity: {}
 
-annotations: {}
+annotations:
+  user.io/test: github.com/foroozf001
 
 labels:
   organization: github
