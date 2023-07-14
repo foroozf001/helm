@@ -6,6 +6,7 @@ metadata:
     {{ $key }}: {{ $value | quote }}
   {{- end }}
   name: "{{ .Release.Name }}-deployment"
+  namespace: {{ .Release.Namespace }}
   labels:
     {{- include "nginx-chart.labels" . | nindent 4 }}
   {{- if .Values.labels }}
