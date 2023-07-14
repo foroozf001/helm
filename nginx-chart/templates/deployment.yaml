@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  {{- with .Values.annotations }}
   annotations:
-  {{- range $key, $value := .Values.annotations }}
-    {{ $key }}: {{ $value | quote }}
+    {{- toYaml . | nindent 0 }}
   {{- end }}
   name: "{{ .Release.Name }}-deployment"
   namespace: {{ .Release.Namespace }}
