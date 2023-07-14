@@ -3,11 +3,11 @@ kind: ConfigMap
 metadata:
   name: "{{ .Release.Name }}-index-html-configmap"
   namespace: {{ .Release.Namespace }}
-  {{- with .Values.labels }}
   labels:
-    {{- toYaml . | nindent 4 }}
-  {{- end }}
     {{- include "nginx-chart.labels" . | nindent 4 }}
+  {{- if .Values.labels }}
+    {{- toYaml .Values.labels | nindent 4 }}
+  {{- end }}
 data:
   index.html: |
     <html>
