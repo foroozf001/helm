@@ -22,6 +22,10 @@ spec:
       labels:
         {{- include "nginx-chart.selectorLabels" . | nindent 8 }}
     spec:
+      initContainers:
+      {{- if .Values.initContainers }}
+        {{ toYaml .Values.initContainers | nindent 8 }}
+      {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
