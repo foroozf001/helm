@@ -27,10 +27,6 @@ spec:
         {{ toYaml .Values.initContainers | nindent 8 }}
       {{- end }}
       containers:
-        - name: {{ .Chart.Name }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
-          ports:
-            - name: http
-              containerPort: 80
-              protocol: TCP
+      {{- if .Values.containers }}
+        {{ toYaml .Values.containers | nindent 8 }}
+      {{- end }}

@@ -18,6 +18,15 @@ initContainers:
     image: busybox
     command: ['sh', '-c', 'echo "hello, world!"']
 
+containers:
+  - image: 'nginx:1.16.0'
+    imagePullPolicy: IfNotPresent
+    name: nginx-chart
+    ports:
+      - containerPort: 80
+        name: http
+        protocol: TCP
+
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
