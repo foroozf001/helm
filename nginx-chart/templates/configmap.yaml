@@ -9,7 +9,9 @@ metadata:
     {{- toYaml .Values.labels | nindent 4 }}
   {{- end }}
 data:
-  index.html:
-  {{- if .Values.nginx.serverHtml }}
-    {{- toYaml .Values.nginx.serverHtml | indent 1 }}
-  {{- end }}
+  index.html: |
+    <html>
+    <h1>Welcome</h1>
+    </br>
+    <h1>Hi! I got deployed in {{ .Values.env.name }} Environment using Helm Chart </h1>
+    </html
