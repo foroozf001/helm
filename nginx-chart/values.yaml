@@ -86,6 +86,14 @@ tolerations: []
 
 affinity: {}
 
+nginx:
+  serverHtml: |
+    <html>
+    <h1>Welcome</h1>
+    </br>
+    <h1>Hi! I got deployed in {{ .Values.env.name }} Environment using Helm Chart </h1>
+    </html
+
 annotations:
   user.io/test: github.com/foroozf001
 
