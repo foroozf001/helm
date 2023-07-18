@@ -23,10 +23,10 @@ spec:
         {{- include "nginx-chart.selectorLabels" . | nindent 8 }}
     spec:
       initContainers:
-      {{- if .Values.initContainers }}
-        {{ toYaml .Values.initContainers | nindent 8 }}
+      {{- if .Values.nginx.initContainers }}
+        {{ toYaml .Values.nginx.initContainers | nindent 8 }}
       {{- end }}
       containers:
-      {{- if .Values.containers }}
-        {{ toYaml .Values.containers | nindent 8 }}
+      {{- if .Values.nginx.containers }}
+        {{ toYaml .Values.nginx.containers | nindent 8 }}
       {{- end }}
