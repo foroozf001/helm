@@ -67,3 +67,14 @@ Create the name of the configmap to use
 {{- define "nginx-chart.configMapName" -}}
   {{- printf "%s-%s" .Release.Name "index-html-configmap" | trunc 63 | trimSuffix "-" -}}
 {{- end }}
+
+{{/*
+Create the name of the mysql instance to use
+*/}}
+{{- define "nginx-chart.mysqlName" -}}
+{{- if .Values.database.create }}
+{{- default (include "nginx-chart.fullname" .) .Values.database.name }}
+{{- else }}
+{{- default "default" .Values.database.name }}
+{{- end }}
+{{- end }}
